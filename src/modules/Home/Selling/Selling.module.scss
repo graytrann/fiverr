@@ -1,0 +1,57 @@
+.selling {
+  display: flex;
+  justify-content: center;
+  background-color: #f1fdf7;
+  margin-bottom: 100px;
+  &_container {
+    width: 80%;
+    margin: 0 atuto;
+    padding-top: 96px;
+    padding-bottom: 96px;
+    .selling_text {
+      h2 {
+        padding-bottom: 24px;
+      }
+      padding-right: 11%;
+      ul {
+        list-style: none;
+        li {
+          padding-bottom: 1px;
+          h6 {
+            font-size: 24px;
+            margin-bottom: 8px;
+            .selling_icon {
+              padding-bottom: 4px;
+              margin-right: 8px;
+              width: 24px;
+              height: 24px;
+            }
+          }
+          p {
+            font-size: 18px;
+            line-height: 26px;
+            color: #62646a;
+            font-weight: 400;
+          }
+        }
+      }
+    }
+    .selling_video {
+      .selling_picture_wrapper {
+        position: relative;
+        img {
+          height: 100%;
+          width: 100%;
+        }
+        .video_button {
+          position: absolute;
+          top: 43%;
+          left: 44%;
+          background-color: transparent;
+          border: none;
+          transition: all 0.5;
+        }
+      }
+    }
+  }
+}

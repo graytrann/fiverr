@@ -1,0 +1,50 @@
+.comment {
+  width: 80%;
+  margin: 0 auto;
+
+  .comment_container {
+    .comment_cover {
+      .comment_video {
+        position: relative;
+        img {
+          height: 100%;
+          width: 100%;
+        }
+        .video_button {
+          position: absolute;
+          top: 38%;
+          right: 45%;
+          background-color: transparent;
+          border: none;
+        }
+      }
+      .comment_text {
+        padding: 0 48px 0 64px;
+        h5 {
+          color: #74767e;
+          font-weight: 400;
+
+          font-size: 18px;
+          line-height: 140%;
+        }
+        .comment_text_logo {
+          border-left: 1px solid #c5c6c9;
+          margin-left: 16px;
+          img {
+            display: inline;
+            height: 40px;
+
+            margin-left: 16px;
+          }
+        }
+        .comment_text_quote {
+          font-weight: 500;
+          font-size: 24px;
+          line-height: 44px;
+          font-family: DomaineDisplay, Helvetica Neue, Helvetica, Arial,
+            sans-serif;
+        }
+      }
+    }
+  }
+}

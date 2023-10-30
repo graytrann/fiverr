@@ -1,0 +1,50 @@
+.type {
+  .banner {
+    background-image: url("https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/67119574fcb6178f7b270ef6e50d2ff5-1689143593519/Graphic%20design.png");
+    height: 240px;
+    background-position: center;
+    background-size: contain;
+    position: relative;
+    width: 75%;
+    margin: 0 auto;
+    border-radius: 10px;
+    &_text {
+      color: white;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-weight: 700;
+      .banner_button {
+        button {
+          color: white;
+          align-items: center;
+          background: transparent;
+          border-color: #fff;
+          font-weight: 400;
+          padding: 10px;
+          transition: all 0.5s;
+          &:hover {
+            background-color: white;
+            color: green;
+            transform: translateY(-5px);
+          }
+        }
+      }
+    }
+  }
+  .popular {
+    width: 75%;
+    margin: 0 auto;
+    &_item {
+      display: flex;
+      align-items: center ;
+      &_logo {
+        img {
+          height: 48px;
+          width: 48px;
+        }
+      }
+    }
+  }
+}

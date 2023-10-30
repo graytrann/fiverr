@@ -1,0 +1,41 @@
+.carousel {
+  margin-bottom: 100px;
+  &_container {
+    width: 90%;
+    margin: 0 auto;
+    .carousel_text {
+      p {
+        font-size: 32px;
+        line-height: 120%;
+        color: rgb(64, 65, 69);
+        font-family: Macan, "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-weight: 700;
+      }
+    }
+    .carousel_list {
+      .carousel_list_item {
+        position: relative;
+
+        .inner_text {
+          position: absolute;
+          left: 25%;
+          top: 13px;
+          color: white;
+          font-family: Macan, "Helvetica Neue", Helvetica, Arial, sans-serif;
+          font-weight: 700;
+          p {
+            font-size: 14px;
+            margin-bottom: 0;
+          }
+        }
+        img {
+          width: 239px;
+          height: 345px;
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+    }
+  }
+}
