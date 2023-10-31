@@ -23,10 +23,22 @@ export async function getJobsByName(TenCongViec) {
 }
 
 // LẤY CHI TIẾT LOẠI CÔNG VIỆC
-export async function getJobsByType(MaLoaiCongViec) {
+export async function getMenuByType(MaLoaiCongViec) {
   try {
     const response = await fetcher.get(
       `/cong-viec/lay-chi-tiet-loai-cong-viec/${MaLoaiCongViec}`
+    );
+    return response.data.content;
+  } catch (error) {
+    throw error.response.data.content;
+  }
+}
+
+// LẤY CÔNG VIỆC THEO CHI TIẾT LOẠI
+export async function getJobsByType(MaChiTietLoai) {
+  try {
+    const response = await fetcher.get(
+      `/cong-viec/lay-cong-viec-theo-chi-tiet-loai/${MaChiTietLoai}`
     );
     return response.data.content;
   } catch (error) {

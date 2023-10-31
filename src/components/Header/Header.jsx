@@ -18,7 +18,7 @@ export default function Header() {
     navigate(`/jobs/${searchTerm}`); // Truyền giá trị từ state vào navigate
   };
 
-  // hàm search xong navigate
+  // hàm nhấn vào list xong navigate
   const handleMoveToJobType = (type, id) => {
     navigate(`/types/${type}/${id}`); // Truyền giá trị từ state vào navigate
   };

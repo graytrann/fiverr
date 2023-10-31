@@ -36,14 +36,34 @@
   .popular {
     width: 75%;
     margin: 0 auto;
-    &_item {
+    
+    .popular_container{
       display: flex;
-      align-items: center ;
-      &_logo {
-        img {
-          height: 48px;
-          width: 48px;
+      align-items: center;
+      &_item {
+       &_inside{
+        margin-right: 10px;
+        display: flex;
+        align-items: center;
+        border: 1px solid #efeff0;
+        border-radius: 12px;
+        color: #404145;
+        padding: 12px;
+        &_logo {
+          img {
+            height: 48px;
+            width: 48px;
+          }
         }
+        &_text {
+          p {
+            margin: 0;
+            margin-left: 10px;
+            margin-right: 7px;
+            
+          }
+        }
+       }
       }
     }
   }

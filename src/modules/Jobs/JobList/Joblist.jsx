@@ -3,7 +3,7 @@ import JobListStyles from "./JobList.module.scss";
 import { AiFillStar } from "react-icons/ai";
 
 export default function Joblist({ jobData }) {
-  console.log(jobData);
+  console.log("Các công việc: ", jobData);
   return (
     <div className={`${JobListStyles.joblist}`}>
       <div className={`${JobListStyles.joblist_container} row`}>
@@ -49,7 +49,10 @@ export default function Joblist({ jobData }) {
                   className={`${JobListStyles.joblist_container_item_star} text-warning font-weight-bold d-flex align-items-center`}
                 >
                   <AiFillStar className="me-1"></AiFillStar>
-                  {job.congViec.saoCongViec}<span className="text-black ms-1">({job.congViec.danhGia})</span>
+                  {job.congViec.saoCongViec}
+                  <span className="text-black ms-1">
+                    ({job.congViec.danhGia})
+                  </span>
                 </div>
               </div>
             );
