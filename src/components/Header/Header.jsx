@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import HeaderStyles from "./Header.module.scss";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { CiSearch } from "react-icons/ci";
+import { AiOutlineLine } from "react-icons/ai";
 import { useQuery } from "@tanstack/react-query";
 import { getJobTypeMenu } from "../../apis/jobs";
 import { useNavigate } from "react-router-dom";
@@ -33,13 +34,47 @@ export default function Header() {
 
   console.log(menuJob);
 
+  // ẩn hiện menu
+  const [showMenu, setShowMenu] = useState(false);
+
+  useEffect(() => {
+    // Bắt sự kiện cuộn trang
+    const handleScroll = () => {
+      // Lấy vị trí cuộn hiện tại
+      const scrollPosition = window.scrollY;
+
+      // Đặt ngưỡng để hiển thị menu, ví dụ: 100px
+      const threshold = 100;
+
+      // Kiểm tra vị trí cuộn để quyết định hiển thị hay không
+      if (scrollPosition > threshold) {
+        setShowMenu(true);
+      } else {
+        setShowMenu(false);
+      }
+    };
+
+    // Thêm sự kiện cuộn
+    window.addEventListener("scroll", handleScroll);
+
+    // Xóa sự kiện cuộn khi component unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <div className={`${HeaderStyles.header}`}>
       <div className={`${HeaderStyles.header_container}`}>
         <Navbar expand="lg" fixed="top" className="bg-body-tertiary ">
           <Container>
             <Navbar.Brand href="#home">
-              <a href="#">
+              <a
+                href="#"
+                onClick={() => {
+                  navigate("/");
+                }}
+              >
                 <img
                   src="./images/Fiverr-Logo.png"
                   alt=""
@@ -119,7 +154,10 @@ export default function Header() {
               </Nav>
             </Navbar.Collapse>
           </Container>
-          <div className={`${HeaderStyles.header_menu}`}>
+          <div
+            className={`${HeaderStyles.header_menu}`}
+            style={{ display: showMenu ? "block" : "none" }}
+          >
             <div className={`${HeaderStyles.header_menu_container}`}>
               <ul>
                 {menuJob.map((menuItem) => (
@@ -139,7 +177,7 @@ export default function Header() {
                     <div className={`${HeaderStyles.header_menu_li_in}`}>
                       {menuItem.dsNhomChiTietLoai.map((nhomChiTiet) => {
                         return (
-                          <div>
+                          <div className="mt-3">
                             <li key={nhomChiTiet.id}>
                               <a href="#">
                                 <b>{nhomChiTiet.tenNhom}</b>
@@ -147,6 +185,7 @@ export default function Header() {
                               <ul>
                                 {nhomChiTiet.dsChiTietLoai.map((chiTiet) => (
                                   <li key={chiTiet.id}>
+                                    <AiOutlineLine />
                                     <a href="#">{chiTiet.tenChiTiet}</a>
                                   </li>
                                 ))}
@@ -165,20 +204,4 @@ export default function Header() {
       </div>
     </div>
   );
-}
-{
-  /* <ul>
-                      {menuItem.dsNhomChiTietLoai.map((nhomChiTiet) => (
-                        <li key={nhomChiTiet.id}>
-                          <a href="#">{nhomChiTiet.tenNhom}</a>
-                          <ul>
-                            {nhomChiTiet.dsChiTietLoai.map((chiTiet) => (
-                              <li key={chiTiet.id}>
-                                <a href="#">{chiTiet.tenChiTiet}</a>
-                              </li>
-                            ))}
-                          </ul>
-                        </li>
-                      ))}
-                    </ul> */
 }

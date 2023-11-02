@@ -38,6 +38,10 @@
       position: absolute;
       top: 100%;
       height: 40px;
+      animation: fadeIn 0.5s ease-in-out; /* Sử dụng animation */
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.3s, transform 0.3s;
       &_container {
         width: 80%;
         margin: 0 auto;
@@ -89,6 +93,7 @@
               left: 0;
               padding-top: 10px;
               padding-bottom: 10px;
+
               a {
                 margin-left: 30px;
                 text-decoration: none;
@@ -108,5 +113,15 @@
         }
       }
     }
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

@@ -3,6 +3,7 @@ import DetailStyles from "./Detail.module.scss";
 import Job from "./Job";
 import { useParams } from "react-router-dom";
 import { getDetailJob } from "../../apis/jobs";
+import Comment from "./Comment";
 
 export default function Detail() {
   // từ thanh URL
@@ -29,8 +30,9 @@ export default function Detail() {
   return (
     <div className={`${DetailStyles.detail}`}>
       <div className={`${DetailStyles.detail_container} row`}>
-        <div className="col-9">
+        <div className="col-8">
           <Job job={job} />
+          <Comment jobId={jobId}/>
         </div>
       </div>
     </div>

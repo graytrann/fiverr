@@ -4,6 +4,8 @@
       .seller_header {
         display: flex;
         align-items: center;
+        padding-top: 10px;
+        padding-bottom: 15px;
         p {
           margin-bottom: 0;
           margin-left: 5px;
@@ -19,9 +21,25 @@
       }
 
       .job_info {
+        margin-top: 20px;
       }
 
-      .job_seller_info {
+      .seller_info {
+        &_container {
+          display: flex;
+          align-items: center;
+          margin-bottom: 40px;
+          img {
+            border-radius: 50%;
+            width: 90px;
+          }
+          &_text {
+            p {
+              margin-bottom: 0;
+              font-size: 14px;
+            }
+          }
+        }
       }
 
       .job_FAQ {

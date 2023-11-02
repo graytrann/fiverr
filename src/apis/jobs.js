@@ -57,3 +57,15 @@ export async function getDetailJob(MaCongViec) {
     throw error.response.data.content;
   }
 }
+
+// LẤY BÌNH LUẬN THEO MÃ CÔNG VIỆC 
+export async function getJobComment(MaCongViec) {
+  try {
+    const response = await fetcher.get(
+      `/binh-luan/lay-binh-luan-theo-cong-viec/${MaCongViec}`
+    );
+    return response.data.content;
+  } catch (error) {
+    throw error.response.data.content;
+  }
+}

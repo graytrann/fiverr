@@ -1,0 +1,23 @@
+.footer {
+  border-top: #74767e solid 1px;
+  &_container {
+    width: 85%;
+    margin: 150px auto 0;
+    display: flex;
+    justify-content: center;
+    &_item {
+      width: 20%;
+      ul {
+        padding-left: 0;
+        list-style-type: none;
+
+        li {
+          padding-bottom: 16px;
+          color: #74767e;
+          font: 400 16px/24px Macan, Helvetica Neue, Helvetica, Arial,
+            sans-serif;
+        }
+      }
+    }
+  }
+}

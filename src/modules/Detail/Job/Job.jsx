@@ -34,6 +34,19 @@ export default function Job({ job }) {
               </div>
               <div className={`${JobStyles.seller_info}`}>
                 <h2>About the seller</h2>
+                <div className={`${JobStyles.seller_info_container}`}>
+                  <img src={jobDetail.avatar} alt="" srcset="" className="me-3"/>
+                  <div className={`${JobStyles.seller_info_container_text}`}>
+                    <p>{jobDetail.tenNguoiTao}</p>
+                    <p>Director</p>
+                    <p className="text-warning">
+                      {jobDetail.congViec.saoCongViec} <AiFillStar />
+                    </p>
+                    <button type="button" class="btn btn-outline-success">
+                      Contact Me
+                    </button>
+                  </div>
+                </div>
               </div>
               <div className={`${JobStyles.job_FAQ}`}>
                 <ul>
