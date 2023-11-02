@@ -11,15 +11,16 @@ export default function TypeList({ jobType }) {
   return (
     <div className={`${TypeListStyles.typelist}`}>
       <h1>Explore Graphics & Design</h1>
-      <div className={`${TypeListStyles.typelist_container} row`}>
+      <div className={`${TypeListStyles.typelist_container} `}>
         {jobType.map((type) => {
           return (
-            <div className={`${TypeListStyles.item} col-3`} key={type.id}>
+            <div className={`${TypeListStyles.item} row`} key={type.id}>
               {type.dsNhomChiTietLoai.map((nhomChiTiet) => (
-                <div key={nhomChiTiet.id}>
+                <div className={`col-3`} key={nhomChiTiet.id}>
                   <div className={`${TypeListStyles.img}`}>
                     <img src={nhomChiTiet.hinhAnh} alt="" />
                   </div>
+                  <p className="fw-bold mt-3">{nhomChiTiet.tenNhom}</p>
                   <div className={`${TypeListStyles.list}`}>
                     <ul>
                       {nhomChiTiet.dsChiTietLoai.map((chiTiet) => {

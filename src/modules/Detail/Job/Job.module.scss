@@ -1,0 +1,47 @@
+.job {
+  &_container {
+    .job_content {
+      .seller_header {
+        display: flex;
+        align-items: center;
+        p {
+          margin-bottom: 0;
+          margin-left: 5px;
+          font-weight: bold;
+        }
+      }
+
+      .job_image {
+        width: 100%;
+        img {
+          width: 100%;
+        }
+      }
+
+      .job_info {
+      }
+
+      .job_seller_info {
+      }
+
+      .job_FAQ {
+        ul {
+          list-style-type: none;
+          li {
+            border-bottom: 1px solid black;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            a {
+              font-weight: bold;
+              color: #62646a;
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}

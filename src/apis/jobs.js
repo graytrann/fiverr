@@ -45,3 +45,15 @@ export async function getJobsByType(MaChiTietLoai) {
     throw error.response.data.content;
   }
 }
+
+// LẤY CÔNG VIỆC CHI TIẾT 
+export async function getDetailJob(MaCongViec) {
+  try {
+    const response = await fetcher.get(
+      `/cong-viec/lay-cong-viec-chi-tiet/${MaCongViec}`
+    );
+    return response.data.content;
+  } catch (error) {
+    throw error.response.data.content;
+  }
+}

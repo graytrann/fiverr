@@ -1,8 +1,16 @@
 import React from "react";
 import JobListStyles from "./JobList.module.scss";
 import { AiFillStar } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 
 export default function Joblist({ jobData }) {
+  const navigate = useNavigate();
+
+  // hàm nhấn vào job xong navigate
+  const handleMoveToJobDetail = (id) => {
+    navigate(`/job/${id}`); // Truyền giá trị từ state vào navigate
+  };
+
   console.log("Các công việc: ", jobData);
   return (
     <div className={`${JobListStyles.joblist}`}>
@@ -12,6 +20,9 @@ export default function Joblist({ jobData }) {
             return (
               <div
                 className={`${JobListStyles.joblist_container_item} col-lg-3 col-md-6 mt-3`}
+                onClick={() => {
+                  handleMoveToJobDetail(job.id);
+                }}
               >
                 {/* HÌNH ẢNH */}
                 <div className={`${JobListStyles.joblist_container_item_img}`}>
