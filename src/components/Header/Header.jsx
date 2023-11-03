@@ -148,7 +148,12 @@ export default function Header() {
                 <Nav.Link className="pe-3">
                   <span className="fw-bold">Become a seller</span>
                 </Nav.Link>
-                <Nav.Link className="pe-3">
+                <Nav.Link
+                  className="pe-3"
+                  onClick={() => {
+                    navigate("/sign-in");
+                  }}
+                >
                   <span className="fw-bold">Sign-in</span>
                 </Nav.Link>
               </Nav>

@@ -1,5 +1,35 @@
-.comment{
-    &_container{
-        
+.comment {
+  border-top: #74767e solid 1px;
+  margin-top: 40px;
+  &_container {
+    margin-top: 50px;
+    &_item {
+      padding-top: 20px;
+      padding-bottom: 20px;
+      &_user {
+        display: flex;
+        align-items: center;
+        p {
+          margin-bottom: 0;
+        }
+        img {
+          width: 40px;
+          height: 34px;
+          border-radius: 50%;
+        }
+      }
+      &_text {
+        margin-left: 40px;
+       
+        p {
+          margin-bottom: 0;
+        }
+      }
+
+      &_time {
+        margin-left: 40px;
+        color: #74767e;
+      }
     }
+  }
 }

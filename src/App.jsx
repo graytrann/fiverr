@@ -4,6 +4,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Jobs from "./modules/Jobs";
 import Types from "./modules/Types";
 import Detail from "./modules/Detail";
+import SignUp from "./modules/Auth/pages/SignUp";
+import SignIn from "./modules/Auth/pages/SignIn";
 
 function App() {
   return (
@@ -16,6 +18,10 @@ function App() {
           <Route path="types/:jobtype/:id" element={<Types />} />
           <Route path="job/:jobId" element={<Detail />} />
         </Route>
+         {/* TRANG ĐĂNG KÝ */}
+         <Route path="/sign-up" element={<SignUp />} />
+          {/* TRANG ĐĂNG NHẬP */}
+          <Route path="/sign-in" element={<SignIn />} />
       </Routes>
     </BrowserRouter>
   );

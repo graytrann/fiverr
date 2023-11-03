@@ -93,6 +93,10 @@
               left: 0;
               padding-top: 10px;
               padding-bottom: 10px;
+              animation: fadeIn 0.5s ease-in-out; /* Sử dụng animation */
+              opacity: 1;
+              transform: translateY(0);
+              transition: opacity 0.3s, transform 0.3s;
 
               a {
                 margin-left: 30px;
