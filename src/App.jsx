@@ -6,24 +6,27 @@ import Types from "./modules/Types";
 import Detail from "./modules/Detail";
 import SignUp from "./modules/Auth/pages/SignUp";
 import SignIn from "./modules/Auth/pages/SignIn";
+import UserProvider from "./context/UserContext";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<MainLayout />}>
-          <Route index element={<Home />} />
-          <Route path="jobs" element={<Jobs />} />
-          <Route path="jobs/:title" element={<Jobs />} />
-          <Route path="types/:jobtype/:id" element={<Types />} />
-          <Route path="job/:jobId" element={<Detail />} />
-        </Route>
-         {/* TRANG ĐĂNG KÝ */}
-         <Route path="/sign-up" element={<SignUp />} />
+    <UserProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<MainLayout />}>
+            <Route index element={<Home />} />
+            <Route path="jobs" element={<Jobs />} />
+            <Route path="jobs/:title" element={<Jobs />} />
+            <Route path="types/:jobtype/:id" element={<Types />} />
+            <Route path="job/:jobId" element={<Detail />} />
+          </Route>
+          {/* TRANG ĐĂNG KÝ */}
+          <Route path="/sign-up" element={<SignUp />} />
           {/* TRANG ĐĂNG NHẬP */}
           <Route path="/sign-in" element={<SignIn />} />
-      </Routes>
-    </BrowserRouter>
+        </Routes>
+      </BrowserRouter>
+    </UserProvider>
   );
 }
 

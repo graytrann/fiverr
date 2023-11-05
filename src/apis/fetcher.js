@@ -17,7 +17,7 @@ fetcher.interceptors.request.use((request) => {
 
   if (user) {
     // update request
-    request.headers.Authorization = `Bearer ${user.accessToken}`;
+    request.headers.Authorization = `Bearer ${user.token}`;
   }
 
   // tiếp tục gửi request lên server típ

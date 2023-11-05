@@ -69,10 +69,11 @@ export default function SignUp() {
     <div className={`${AuthStyles.auth}`}>
       <div className={`${AuthStyles.auth_container}`}>
         <div className={`${AuthStyles.auth_container_form}`}>
+          <h1>SIGN UP !</h1>
           <form onSubmit={handleSubmit(onSubmit, onError)}>
             {/* FULL NAME */}
             <div className={`${AuthStyles.form_input}`}>
-              <label htmlFor="">Full Name</label>
+              <h6>Full Name</h6>
               <input
                 className={`${AuthStyles.input_taiKhoan}`}
                 type="text"
@@ -83,9 +84,9 @@ export default function SignUp() {
             </div>
             {/* EMAIL */}
             <div className={`${AuthStyles.form_input}`}>
-              <label htmlFor="">Email</label>
+              <h6>Email</h6>
               <input
-                className={`${AuthStyles.input_taiKhoan}`}
+                className={`${AuthStyles.input_email}`}
                 type="text"
                 placeholder="Email"
                 {...register("email")}
@@ -94,9 +95,9 @@ export default function SignUp() {
             </div>
             {/* PASSWORD */}
             <div className={`${AuthStyles.form_input}`}>
-              <label htmlFor="">PASSWORD</label>
+              <h6>Password</h6>
               <input
-                className={`${AuthStyles.input_taiKhoan}`}
+                className={`${AuthStyles.input_email}`}
                 type="password"
                 {...register("password")}
               />
@@ -104,7 +105,7 @@ export default function SignUp() {
             </div>
             {/* PHONE-NUMBER */}
             <div className={`${AuthStyles.form_input}`}>
-              <label htmlFor="">Phone Number</label>
+              <h6>Phone Number</h6>
               <input
                 className={`${AuthStyles.input_taiKhoan}`}
                 type="text"
@@ -115,7 +116,7 @@ export default function SignUp() {
             </div>
             {/* BIRTHDAY */}
             <div className={`${AuthStyles.form_input}`}>
-              <label htmlFor="">Birthday</label>
+              <h6>Birthday</h6>
               <input
                 className={`${AuthStyles.input_taiKhoan}`}
                 type="date"
@@ -124,25 +125,28 @@ export default function SignUp() {
               {errors.birthday && <p>{errors.birthday.message}</p>}
             </div>
             {/* GENDER */}
-            <div className={`${AuthStyles.form_input}`}>
-              <label htmlFor="">Gender</label>
+            <div className={`${AuthStyles.form_input} d-flex align-items-center`}>
+              <h6>Nam</h6>
               <input
-                className={`${AuthStyles.input_taiKhoan}`}
+                className={`${AuthStyles.input_gender}`}
                 type="radio"
                 value="true"
                 {...register("gender")}
               />
+              <h6 className="ms-5">Nữ</h6>
               <input
-                className={`${AuthStyles.input_taiKhoan}`}
+                className={`${AuthStyles.input_gender}`}
                 type="radio"
                 value="false"
                 {...register("gender")}
               />
               {errors.gender && <p>{errors.gender.message}</p>}
             </div>
-            <button className="btn btn-success btn-lg" type="submit">
-              Đăng Ký
-            </button>
+            <div className="text-center">
+              <button className="btn btn-success btn-lg" type="submit">
+                Đăng Ký
+              </button>
+            </div>
           </form>
         </div>
       </div>

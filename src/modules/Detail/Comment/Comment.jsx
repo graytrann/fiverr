@@ -3,11 +3,21 @@ import { getJobComment } from "../../../apis/jobs";
 import CommentStyles from "./Comment.module.scss";
 import { AiFillStar } from "react-icons/ai";
 import dayjs from "dayjs";
+import { comment } from "../../../apis/user";
+import { useUserContext } from "../../../context/UserContext";
 
 export default function Comment({ jobId }) {
   console.log("Comment của ID :", jobId);
+  const { currentUser } = useUserContext();
 
   const [comments, setComments] = useState([]);
+
+  const maCongViec = jobId;
+  const maNguoiBinhLuan = currentUser.user.id;
+  const currentDate = new Date();
+  const ngayBinhLuan = currentDate.toLocaleDateString();
+  const [noiDung, setNoiDung] = useState("string");
+  const saoBinhLuan = 10;
 
   // hàm gọi lấy chi tiết của công việc
   const getComments = async () => {
@@ -23,7 +33,17 @@ export default function Comment({ jobId }) {
     getComments();
   }, [jobId]);
 
-  console.log(comments);
+  const handleSubmit = () => {
+    const commentData = {
+      maCongViec,
+      maNguoiBinhLuan,
+      ngayBinhLuan,
+      noiDung,
+      saoBinhLuan,
+    };
+
+    comment(commentData);
+  };
   return (
     <div className={`${CommentStyles.comment}`}>
       <div className={`${CommentStyles.comment_container}`}>
@@ -47,6 +67,13 @@ export default function Comment({ jobId }) {
             </div>
           );
         })}
+        <input
+          type="text"
+          value={noiDung}
+          onChange={(e) => setNoiDung(e.target.value)}
+        />
+        <button onClick={handleSubmit}>SUBMIT</button>
+       
       </div>
     </div>
   );

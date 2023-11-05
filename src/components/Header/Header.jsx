@@ -9,8 +9,10 @@ import { AiOutlineLine } from "react-icons/ai";
 import { useQuery } from "@tanstack/react-query";
 import { getJobTypeMenu } from "../../apis/jobs";
 import { useNavigate } from "react-router-dom";
+import { useUserContext } from "../../context/UserContext";
 
 export default function Header() {
+  const { currentUser, handleSignout } = useUserContext();
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState(""); // State để lưu giá trị từ input
 
@@ -142,12 +144,30 @@ export default function Header() {
                     Fiverr Workspace
                   </NavDropdown.Item>
                 </NavDropdown>
-                <Nav.Link className="pe-3">
-                  <span className="fw-bold">English</span>
-                </Nav.Link>
+
                 <Nav.Link className="pe-3">
                   <span className="fw-bold">Become a seller</span>
                 </Nav.Link>
+                {currentUser && (
+                  <NavDropdown
+                    title={
+                      <span className="fw-bold">{currentUser.user.name}</span>
+                    }
+                    id="basic-nav-dropdown"
+                    className="pe-3"
+                  >
+                    <NavDropdown.Item href="#action/3.2">
+                      Profile
+                    </NavDropdown.Item>
+                    <NavDropdown.Divider />
+                    <NavDropdown.Item
+                      href="#action/3.3"
+                      onClick={handleSignout}
+                    >
+                      Signout
+                    </NavDropdown.Item>
+                  </NavDropdown>
+                )}
                 <Nav.Link
                   className="pe-3"
                   onClick={() => {
@@ -156,6 +176,7 @@ export default function Header() {
                 >
                   <span className="fw-bold">Sign-in</span>
                 </Nav.Link>
+                {/* <p>{currentUser.user.name}</p> */}
               </Nav>
             </Navbar.Collapse>
           </Container>
