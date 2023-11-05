@@ -13,7 +13,7 @@ export default function Comment({ jobId }) {
   const [comments, setComments] = useState([]);
 
   const maCongViec = jobId;
-  const maNguoiBinhLuan = currentUser.user.id;
+  const maNguoiBinhLuan = currentUser?.user?.id;
   const currentDate = new Date();
   const ngayBinhLuan = currentDate.toLocaleDateString();
   const [noiDung, setNoiDung] = useState("string");
