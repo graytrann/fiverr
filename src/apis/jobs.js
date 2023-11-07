@@ -69,3 +69,13 @@ export async function getJobComment(MaCongViec) {
     throw error.response.data.content;
   }
 }
+
+// THUÊ CÔNG VIỆC 
+export const hireJob = async (payload) => {
+  try {
+    const response = await fetcher.post("/thue-cong-viec", payload);
+    return response.data?.content;
+  } catch (error) {
+    throw error.response.data?.content;
+  }
+};

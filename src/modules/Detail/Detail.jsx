@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { getDetailJob } from "../../apis/jobs";
 import Comment from "./Comment";
 import { useQuery } from "@tanstack/react-query";
+import Purchase from "./Purchase";
 
 export default function Detail() {
   // từ thanh URL
@@ -33,7 +34,7 @@ export default function Detail() {
     queryFn: () => getDetailJob(jobId),
   });
 
-  console.log("Job nè", job);
+
 
   return (
     <div className={`${DetailStyles.detail}`}>
@@ -42,6 +43,9 @@ export default function Detail() {
           <div className="col-8">
             <Job job={job} />
             <Comment jobId={jobId} />
+          </div>
+          <div className="col-4">
+            <Purchase job={job} jobId={jobId}/>
           </div>
         </div>
       </div>

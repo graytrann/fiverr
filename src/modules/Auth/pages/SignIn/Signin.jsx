@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useMutation } from "@tanstack/react-query";
 import { object, string } from "yup";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Navigate, useSearchParams } from "react-router-dom";
 import { signin } from "../../../../apis/user";
 import { useUserContext } from "../../../../context/UserContext";
 
@@ -18,6 +18,7 @@ export default function Signin() {
   const navigate = useNavigate();
   const { currentUser, handleSignin: onSigninSuccess } = useUserContext();
 
+  const [searchParams] = useSearchParams();
   // các input
   const {
     register,
@@ -48,7 +49,7 @@ export default function Signin() {
       console.log("data đã đăng nhập", data); //FROM API
       // localStorage.setItem("currentUser", JSON.stringify(data));
       onSigninSuccess(data); // from UserContext
-      navigate("/");
+
     },
   });
 
@@ -63,6 +64,11 @@ export default function Signin() {
   const onError = (error) => {
     console.log("Lỗi : ", error);
   };
+
+  if (currentUser) {
+    const redirectTo = searchParams.get("redirectTo");
+    return <Navigate to={redirectTo || "/"} replace />;
+  }
   return (
     <div className={`${AuthStyles.auth}`}>
       <div className={`${AuthStyles.auth_container}`}>
