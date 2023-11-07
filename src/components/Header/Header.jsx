@@ -203,7 +203,7 @@ export default function Header() {
                     <div className={`${HeaderStyles.header_menu_li_in}`}>
                       {menuItem.dsNhomChiTietLoai.map((nhomChiTiet) => {
                         return (
-                          <div className="mt-3">
+                          <div className="mt-3" key={nhomChiTiet.id}>
                             <li key={nhomChiTiet.id}>
                               <a href="#">
                                 <b>{nhomChiTiet.tenNhom}</b>

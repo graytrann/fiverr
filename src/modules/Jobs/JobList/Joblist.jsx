@@ -26,7 +26,7 @@ export default function Joblist({ jobData }) {
               >
                 {/* HÌNH ẢNH */}
                 <div className={`${JobListStyles.joblist_container_item_img}`}>
-                  <img src={job.congViec.hinhAnh} alt="" srcset="" />
+                  <img src={job.congViec.hinhAnh} alt=""  />
                 </div>
                 {/* NGƯỜI DÙNG */}
                 <div
