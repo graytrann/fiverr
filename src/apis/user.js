@@ -29,3 +29,13 @@ export const comment = async (payload) => {
     throw error.response.data?.content;
   }
 };
+
+// LẤY THÔNG TIN USER
+export async function getUserInfo(id) {
+  try {
+    const response = await fetcher.get(`/users/${id}`);
+    return response.data.content;
+  } catch (error) {
+    throw error.response.data.content;
+  }
+}

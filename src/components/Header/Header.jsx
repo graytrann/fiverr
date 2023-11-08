@@ -156,7 +156,12 @@ export default function Header() {
                     id="basic-nav-dropdown"
                     className="pe-3"
                   >
-                    <NavDropdown.Item href="#action/3.2">
+                    <NavDropdown.Item
+                      href="#action/3.2"
+                      onClick={() => {
+                        navigate("/profile");
+                      }}
+                    >
                       Profile
                     </NavDropdown.Item>
                     <NavDropdown.Divider />

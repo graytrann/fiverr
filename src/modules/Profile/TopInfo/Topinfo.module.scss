@@ -1,0 +1,28 @@
+.topInfo {
+  .topInfo_container {
+    border: 1px solid black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    &_image {
+        margin-top: 10px;
+      img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+      }
+      hr {
+        width: 75%;
+        margin: auto;
+      }
+    }
+
+    .topInfo_subInfo {
+        margin-top: 10px;
+      .topInfo_subInfo_item {
+        padding: 0 10px 0 10px;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+}

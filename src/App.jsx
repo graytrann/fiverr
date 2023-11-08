@@ -7,6 +7,7 @@ import Detail from "./modules/Detail";
 import SignUp from "./modules/Auth/pages/SignUp";
 import SignIn from "./modules/Auth/pages/SignIn";
 import UserProvider from "./context/UserContext";
+import Profile from "./modules/Profile";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route path="jobs/:title" element={<Jobs />} />
             <Route path="types/:jobtype/:id" element={<Types />} />
             <Route path="job/:jobId" element={<Detail />} />
+            <Route path="profile" element={<Profile />} />
           </Route>
           {/* TRANG ĐĂNG KÝ */}
           <Route path="/sign-up" element={<SignUp />} />
