@@ -39,3 +39,24 @@ export async function getUserInfo(id) {
     throw error.response.data.content;
   }
 }
+
+// CẬP NHẬT THÔNG TIN NGƯỜI DÙNG
+export async function UpdateUserInfo(userId, payload) {
+  try {
+    const response = await fetcher.put(`/users/${userId}`, payload);
+    return response.data.content;
+  } catch (error) {
+    throw error.response.data.content;
+  }
+}
+
+// LẤY DANH SÁCH CÔNG VIỆC ĐÃ THUÊ
+
+export async function GetHiredJobs() {
+  try {
+    const response = await fetcher.get("/thue-cong-viec/lay-danh-sach-da-thue");
+    return response.data.content;
+  } catch (error) {
+    throw error.response.data.content;
+  }
+}
