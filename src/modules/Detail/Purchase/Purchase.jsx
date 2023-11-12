@@ -4,6 +4,7 @@ import { hireJob } from "../../../apis/jobs";
 import { useUserContext } from "../../../context/UserContext";
 import { useMutation } from "@tanstack/react-query";
 import { useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 export default function Purchase({ job, jobId }) {
   const { currentUser } = useUserContext();
@@ -38,8 +39,18 @@ export default function Purchase({ job, jobId }) {
       ngayThue,
       hoanThanh,
     };
-
-    handleHiring(JobHiringInfo);
+    Swal.fire({
+      title: "Bạn có muốn đặt việc này ?",
+      showCancelButton: true,
+      confirmButtonText: "Có",
+      denyButtonText: `Hủy`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        Swal.fire("Đã đặt!", "", "success");
+        handleHiring(JobHiringInfo);
+      }
+    });
   };
   return (
     <div className={`${PurchaseStyles.purchase}`}>
@@ -48,7 +59,7 @@ export default function Purchase({ job, jobId }) {
           {job.map((job) => {
             return (
               <div key={job.id}>
-                <p>{job.congViec.giaTien}$</p>
+                <p className="fw-bold">{job.congViec.giaTien}$</p>
                 <p>
                   Save up to 10% with
                   <span className="text-success"> Subscribe to Save</span>
@@ -57,12 +68,17 @@ export default function Purchase({ job, jobId }) {
                     will create full fledged ONE page responsive & mobile
                     friendly website with admin panel for you.
                   </p>
-                  <pre>{job.congViec.moTaNgan}$</pre>
+                  <pre className={`${PurchaseStyles.sub_text}`}>
+                    {job.congViec.moTaNgan}
+                  </pre>
                 </p>
 
-                <button onClick={handleHiringJob}>
-                  Hiring Job with only {job.congViec.giaTien}$
-                </button>
+                <div className="text-center">
+                  <button onClick={handleHiringJob} className="btn btn-success">
+                    Hiring Job with only{" "}
+                    <span className="fw-bold">{job.congViec.giaTien}$</span>
+                  </button>
+                </div>
               </div>
             );
           })}

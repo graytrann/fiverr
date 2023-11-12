@@ -1,0 +1,19 @@
+.hired {
+  &_container {
+    &_item {
+      margin-bottom: 30px;
+      display: flex;
+      &_img {
+        img {
+          height: 135px;
+        }
+      }
+      &_content {
+        .text_sub {
+          font-size: 13px;
+          color: gray;
+        }
+      }
+    }
+  }
+}

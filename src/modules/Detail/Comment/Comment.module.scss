@@ -1,6 +1,7 @@
 .comment {
   border-top: #74767e solid 1px;
   margin-top: 40px;
+  margin-bottom: 40px;
   &_container {
     margin-top: 50px;
     &_item {
@@ -30,6 +31,17 @@
         margin-left: 40px;
         color: #74767e;
       }
+    }
+    .comment_content{
+      display: flex;
+      text-align: center  ;
+      textarea{
+        width: 400px;
+      }
+     button{
+      border: none;
+      background-color: transparent;
+     }
     }
   }
 }

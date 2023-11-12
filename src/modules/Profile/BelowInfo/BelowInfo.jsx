@@ -3,6 +3,7 @@ import BelowInfoStyles from "./BelowInfo.module.scss";
 import { UpdateUserInfo } from "../../../apis/user";
 import { AiFillHeart, AiOutlineClose, AiOutlineSave } from "react-icons/ai";
 import { FcCancel } from "react-icons/fc";
+import Swal from "sweetalert2";
 
 export default function BelowInfo({ userInfo }) {
   const [isAddingNewSkill, setIsAddingNewSkill] = useState(false);
@@ -72,6 +73,13 @@ export default function BelowInfo({ userInfo }) {
   const handleUpdateUserInfo = () => {
     UpdateUserInfo(userInfo.id, { ...userInfo, skill, certification });
     setSubmit(true);
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Đã cập nhật bio của bạn <3",
+      showConfirmButton: false,
+      timer: 1500,
+    });
   };
 
   console.log(skill);

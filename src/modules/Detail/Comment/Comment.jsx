@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getJobComment } from "../../../apis/jobs";
 import CommentStyles from "./Comment.module.scss";
 import { AiFillStar } from "react-icons/ai";
+import { LuSend } from "react-icons/lu";
 import dayjs from "dayjs";
 import { comment } from "../../../apis/user";
 import { useUserContext } from "../../../context/UserContext";
@@ -17,7 +18,7 @@ export default function Comment({ jobId }) {
   const maNguoiBinhLuan = currentUser?.user?.id;
   const currentDate = new Date();
   const ngayBinhLuan = currentDate.toLocaleDateString();
-  const [noiDung, setNoiDung] = useState("string");
+  const [noiDung, setNoiDung] = useState("");
   const saoBinhLuan = 10;
 
   const queryClient = useQueryClient();
@@ -99,13 +100,21 @@ export default function Comment({ jobId }) {
           );
         })}
         {currentUser && (
-          <div>
-            <input
+          <div className={`${CommentStyles.comment_content}`}>
+            {/* <input
               type="text"
               value={noiDung}
               onChange={(e) => setNoiDung(e.target.value)}
+            /> */}
+            <textarea
+              placeholder="hãy bình luận gì đó"
+              className="custom-textarea" // Áp dụng class style của bạn
+              value={noiDung}
+              onChange={(e) => setNoiDung(e.target.value)}
             />
-            <button onClick={handleSubmit}>SUBMIT</button>
+            <button onClick={handleSubmit} className="">
+              <LuSend size={25} />
+            </button>
           </div>
         )}
       </div>
