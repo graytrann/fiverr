@@ -1,10 +1,13 @@
 .footer {
   border-top: #74767e solid 1px;
+  display: flex;
+  justify-content: center;
   &_container {
     width: 85%;
     margin: 150px auto 0;
     display: flex;
     justify-content: center;
+    
     &_item {
       width: 20%;
       ul {

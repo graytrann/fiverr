@@ -3,6 +3,9 @@
     &_item {
       margin-bottom: 30px;
       display: flex;
+      @media (max-width: 768px) {
+        display: block;
+      }
       &_img {
         img {
           height: 135px;
